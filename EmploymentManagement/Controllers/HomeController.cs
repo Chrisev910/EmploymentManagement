@@ -8,9 +8,16 @@ namespace EmploymentManagement.Controllers
 {
     public class HomeController : Controller
     {
+
         public JsonResult Index()
         {
-            return Json(new { id = 1, name = "Chris" }); 
+            JsonResult result;
+
+                result = Json(new { id = 1, name = "Chris" });
+
+            return result;
+                
+                
         }
     }
 }

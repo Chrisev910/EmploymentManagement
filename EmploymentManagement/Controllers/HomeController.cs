@@ -13,7 +13,7 @@ namespace EmploymentManagement.Controllers
         {
             JsonResult result;
 
-                result = Json(new { id = 1, name = "Chris" });
+            result = Json(new { id = 1, name = "Chris" });
 
             return result;
                 

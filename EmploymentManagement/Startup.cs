@@ -18,8 +18,7 @@ namespace EmploymentManagement
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddMvc(option => option.EnableEndpointRouting = false);
-           
+            services.AddMvc(option => option.EnableEndpointRouting = false);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -27,19 +26,17 @@ namespace EmploymentManagement
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+               app.UseDeveloperExceptionPage();
             }
-
-            FileServerOptions fileServerOptions = new FileServerOptions();
-            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Clear();
-            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Add("foo.html");
-            app.UseFileServer(fileServerOptions);
             
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World");
-            }
-            );
+            app.UseStaticFiles();
+            app.UseMvcWithDefaultRoute();
+
+            //app.Run(async (context) =>
+            //{
+            //    await context.Response.WriteAsync("Hello World");
+            //}
+            //);
 
 
         }
